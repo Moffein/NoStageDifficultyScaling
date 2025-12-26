@@ -11,14 +11,14 @@ using System;
 [assembly: SecurityPermission(SecurityAction.RequestMinimum, SkipVerification = true)]
 namespace ScalingExperiment
 {
-    [BepInPlugin("com.Moffein.NoStageDifficultyScaling", "No Stage Difficulty Scaling", "1.0.0")]
+    [BepInPlugin("com.Moffein.NoStageDifficultyScaling", "No Stage Difficulty Scaling", "1.0.1")]
     public class NoStageDifficultyScaling : BaseUnityPlugin
     {
         public static ConfigEntry<float> stageDurationBaseline;
 
         internal void Awake()
         {
-            stageDurationBaseline = base.Config.Bind < float>(new ConfigDefinition("Settings", "Stage Clear Time"), 360f, new ConfigDescription("Expected time in seconds to clear a stage."));
+            stageDurationBaseline = base.Config.Bind < float>(new ConfigDefinition("Settings", "Stage Clear Time"), 420f, new ConfigDescription("Expected time in seconds to clear a stage."));
             if (stageDurationBaseline.Value <= 0f)
             {
                 Debug.LogError("NoStageDifficultyScaling: Baseline stage clear timer must be greater than 0.");
